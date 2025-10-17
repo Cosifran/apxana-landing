@@ -23,7 +23,9 @@ export default function Hero() {
       <div className="absolute inset-0 flex flex-col md:flex-row items-center justify-between px-55">
         <div className="grid grid-cols-2 gap-4 container">
           <div className="flex flex-col gap-10">
-            <h1 className="text-6xl font-extrabold text-[#271447]">Impulsamos tu negocio con tecnologia</h1>
+            <h1 className="text-6xl font-extrabold text-[#271447]">
+              Impulsamos tu negocio con tecnologia
+            </h1>
             <p className="text-gray-600 text-lg">
               Somos una firma de consultoría IT que diseña, implementa y
               optimiza soluciones modernas para acelerar resultados y crear
@@ -41,13 +43,14 @@ export default function Hero() {
 
           <div className="flex justify-center md:justify-end mt-10 md:mt-0">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition duration-500">
-              <Image src="/assets/page-hero.png"
-                   alt="Dashboard tecnológico Apxana"
-                   width={600}
-                   height={400}
-                   className="drop-shadow-2xl rounded-xl"
-                   priority
-            />
+              <Image
+                src="/assets/page-hero.png"
+                alt="Dashboard tecnológico Apxana"
+                width={600}
+                height={400}
+                className="drop-shadow-2xl rounded-xl"
+                priority
+              />
             </div>
           </div>
         </div>
