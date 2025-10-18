@@ -4,8 +4,8 @@ import { Send } from "lucide-react";
 
 export default function Contact() {
   return (
-    <div className="py-20 bg-gradient-to-b from-[#d9d6e8] to-[#c9c7da]">
-      <div className="container mx-auto px-6 md:px-16">
+    <div id="contacto" className="py-20 bg-gradient-to-b from-[#d9d6e8] to-[#c9c7da]">
+      <div className="container mx-auto px-4 md:px-16 lg:px-12 max-w-7xl">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-extrabold text-[#2e1746] mb-4">Contacto</h2>
           <p className="text-gray-700 text-lg max-w-2xl mx-auto">
