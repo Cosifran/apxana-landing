@@ -41,8 +41,8 @@ export default function We() {
   ];
 
   return (
-    <div className="relative py-24 bg-gradient-to-b from-[#d9d6e8] to-[#c9c7da]">
-      <div className="container mx-auto px-6 md:px-16">
+    <div id="nosotros" className="relative py-24 bg-gradient-to-b from-[#d9d6e8] to-[#c9c7da]">
+      <div className="container mx-auto px-4 md:px-16 lg:px-12 max-w-7xl">
         {/* Encabezado */}
         <div className="text-center mb-16 max-w-2xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-extrabold text-[#2e1746] mb-4">

@@ -133,3 +133,13 @@
 .animate-float {
   animation: float 5s ease-in-out infinite;
 }
+
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}

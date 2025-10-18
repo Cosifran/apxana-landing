@@ -23,7 +23,7 @@ export default function WhyChooseUs() {
 
   return (
     <div className="relative py-24 bg-gradient-to-b from-white to-[#f4f2fc]">
-      <div className="container mx-auto px-6 md:px-16">
+      <div className="container mx-auto px-4 md:px-16 lg:px-12 max-w-7xl">
         {/*Enbezado */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-extrabold text-[#2e1746] mb-4">

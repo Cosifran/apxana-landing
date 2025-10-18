@@ -8,8 +8,9 @@ import Image from "next/image";
 export default function Nav() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+
   const navLinks = [
-    { name: 'Inicio', href: '/' },
+    { name: 'Inicio', href: '/#inicio' },
     { name: 'Servicios', href: '/#servicios' },
     { name: 'Nosotros', href: '/#nosotros' },
     { name: 'Contacto', href: '/#contacto' },
@@ -19,24 +20,27 @@ export default function Nav() {
    <nav className="fixed top-0 left-0 w-full bg-gradient-to-b from-[#402f5e]/90 to-[#a08ebd]/90 backdrop-blur-md shadow-md z-50">
     <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
-      <div className="flex items-center gap-3 group cursor-pointer transition-all">
+      <div className="flex items-center gap-3 group cursor-pointer transition-all" >
+        
         <div className="relative w-14 h-14 rounded-full overflow-hidden bg-white/10 backdrop-blur-md border border-white/20 group-hover:scale-105 transition-transform duration-300">
           <Image
             src="/assets/logos/ApxanaTech.svg"
             alt="ApxanaTech"
-            fill
-            className="object-contain p-0.3 rounded-full "
+            width={56}
+            height={56}
+            className="object-contain p-0.3 rounded-full"
           />
         </div>
-        <span className="text-xl font-semibold text-[#271447] tracking-wide">
+        <span className="text-xl font-bold text-[#271447] tracking-wide">
           APXANA TECH
         </span>
       </div>
 
       <div className="hidden md:flex space-x-8">
         {navLinks.map((link) =>  (
-          <Link key={link.name} href={link.href} className={`px-4 py-2 rounded-lg transition-all duration-300 ${
-                pathname === link.href ? 'bg-[#6A4FFF] text-white shadow-lg' : 'hover:text-[#6A4FFF]'}`}>
+          <Link key={link.name} href={link.href} 
+                className={`text-lg font-semibold px-4 py-2 rounded-lg transition-all duration-300 
+                ${pathname === link.href ? 'bg-[#6A4FFF] text-white shadow-lg' : 'hover:text-[#6A4FFF]'}`}>
                   {link.name}
           </Link>
         ))}
