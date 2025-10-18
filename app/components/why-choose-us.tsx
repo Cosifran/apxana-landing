@@ -26,7 +26,7 @@ export default function WhyChooseUs() {
       <div className="container mx-auto px-6 md:px-16">
         {/*Enbezado */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-[#664270] mb-4">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-[#2e1746] mb-4">
             ¿Por qué Elegirnos?
           </h2>
           <p className="text-gray-600 text-lg">

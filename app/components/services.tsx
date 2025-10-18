@@ -31,7 +31,7 @@ export default function Services() {
       <div className="container mx-auto px-6 md:px-16">
         {/* Encabezado */}
         <div className="text-center mb-16 max-w-2xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-[#271447] mb-4">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-[#2e1746] mb-4">
             Nuestros Servicios
           </h2>
           <p className="text-gray-600 text-lg">
