@@ -22,18 +22,18 @@ export default function Hero() {
       />
       <div className="absolute inset-0 flex flex-col md:flex-row items-center justify-between px-55">
         <div className="grid grid-cols-2 gap-4 container">
-          <div className="flex flex-col gap-10">
+          <div className="flex flex-col gap-12">
             <h1 className="text-6xl font-extrabold text-[#271447]">
               Impulsamos tu negocio con tecnologia
             </h1>
             <p className="text-gray-600 text-lg">
-              Somos una firma de consultoría IT que diseña, implementa y
-              optimiza soluciones modernas para acelerar resultados y crear
-              ventajas competitivas.
+              Somos una empresa dedicada a ayudar a otras empresas y emprendedores a convertir sus ideas en 
+              soluciones digitales. Ofrecemos consultoría tecnológica, desarrollo de software a la medida 
+              y diseño digital con un enfoque innovador y escalable.
             </p>
             <div className="flex items-center gap-6">
               <button className="bg-primary text-white px-4 py-2 rounded-md">
-                Agenda una demo
+                Contactanos
               </button>
               <button className="bg-gray-400 text-primary px-4 py-2 rounded-md">
                 Conoce mas

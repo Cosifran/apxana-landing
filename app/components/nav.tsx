@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import Image from "next/image";
 
 export default function Nav() {
   const pathname = usePathname();
@@ -18,7 +19,15 @@ export default function Nav() {
    <nav className="fixed top-0 left-0 w-full bg-gradient-to-b from-[#402f5e]/90 to-[#a08ebd]/90 backdrop-blur-md shadow-md z-50">
     <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
-      <div className="flex items-cente gap-3">
+      <div className="flex items-center gap-3 group cursor-pointer transition-all">
+        <div className="relative w-14 h-14 rounded-full overflow-hidden bg-white/10 backdrop-blur-md border border-white/20 group-hover:scale-105 transition-transform duration-300">
+          <Image
+            src="/assets/logos/ApxanaTech.svg"
+            alt="ApxanaTech"
+            fill
+            className="object-contain p-0.3 rounded-full "
+          />
+        </div>
         <span className="text-xl font-semibold text-[#271447] tracking-wide">
           APXANA TECH
         </span>
