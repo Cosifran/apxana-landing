@@ -28,9 +28,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
+        suppressHydrationWarning
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="container mx-auto">
+        <div className="h-screen">
           <Nav />
           {children}
           <Footer />
