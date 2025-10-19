@@ -1,3 +1,4 @@
+'use client'
 // Import components
 import InputComponent from "./ui/InputComponent";
 import { Send } from "lucide-react";
@@ -26,7 +27,7 @@ export default function Contact() {
                 id="message"
                 placeholder="Cuentanos tu idea..."
                 rows={5}
-                className="w-full pl-5 pr-4 py-3 rounded-lg mt-5 bg-background 
+                className="w-full pl-5 pr-4 py-3 rounded-lg bg-background 
                   text-foreground placeholder-muted-foreground focus:outline-none 
                   focus:ring-2 focus:ring-primary border-2 border-border hover:border-primary/50 
                   transition-all duration-200 text-base resize-none"

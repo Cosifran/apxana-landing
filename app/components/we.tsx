@@ -3,7 +3,6 @@ import { ShieldCheck, Users, Target, RollerCoaster } from "lucide-react";
 import { title } from "process";
 
 export default function We() {
-
   const values = [
     {
       icon: <Target className="w-5 h-5 text-[#664270]" />,
@@ -18,15 +17,15 @@ export default function We() {
     {
       icon: <Users className="w-5 h-5 text-[#664270]" />,
       title: "Compromiso",
-      desc: "Tu éxito es nuestro propósito."
+      desc: "Tu éxito es nuestro propósito.",
     },
   ];
 
   const team = [
     {
-      name: "Francisco Estrada Flores", 
+      name: "Francisco Estrada Flores",
       role: "Fundador",
-      img: "",
+      img: "/assets/fran_img.png",
     },
     {
       name: "Andres Ospino Mejía",
@@ -36,12 +35,15 @@ export default function We() {
     {
       name: "Jan Ospino",
       role: "Fundador",
-      img: "",
+      img: "/assets/jan_img.jpeg",
     },
   ];
 
   return (
-    <div id="nosotros" className="relative py-24 bg-gradient-to-b from-[#d9d6e8] to-[#c9c7da]">
+    <div
+      id="nosotros"
+      className="relative py-24 bg-gradient-to-b from-[#d9d6e8] to-[#c9c7da]"
+    >
       <div className="container mx-auto px-4 md:px-16 lg:px-12 max-w-7xl">
         {/* Encabezado */}
         <div className="text-center mb-16 max-w-2xl mx-auto">
@@ -58,59 +60,59 @@ export default function We() {
         <div className="grid md:grid-cols-2 gap-8 items-start">
           {/* Misión y valores */}
           <div className="bg-white p-8 rounded-2xl shadow-mb border border-gray-100">
-            <h3 className="text-xl font-semibold text-[#664270]">
-              Misión
-            </h3>
+            <h3 className="text-xl font-semibold text-[#664270]">Misión</h3>
             <p className="text-gray-600">
-              En APXANA TECH, ayudamos a las empresas a potenciar su transformación digital mediante
-              soluciones tecnológicas personalizadas. Con nuestras soluciones en consultoría de 
-              transformación digital, desarrollo de software a la medida y diseño digital, ofreciendo
-              innovación, eficiencia y soporte de calidad para impulsar la competitividad empresarial.
+              En APXANA TECH, ayudamos a las empresas a potenciar su
+              transformación digital mediante soluciones tecnológicas
+              personalizadas. Con nuestras soluciones en consultoría de
+              transformación digital, desarrollo de software a la medida y
+              diseño digital, ofreciendo innovación, eficiencia y soporte de
+              calidad para impulsar la competitividad empresarial.
             </p>
 
             <div className="grid sm:grid-cols-3 gap-4">
               {values.map((val, index) => (
-                <div key={index} className="p-4 rounded-xl bg-[#f6f4fb] text-center hover:shadow-md transition">
-                  <div className="flex justify-center mb-2">
-                    {val.icon}
-                  </div>
+                <div
+                  key={index}
+                  className="p-4 rounded-xl bg-[#f6f4fb] text-center hover:shadow-md transition"
+                >
+                  <div className="flex justify-center mb-2">{val.icon}</div>
                   <h4 className="font-semibold text-2sm text-gray-900">
                     {val.title}
                   </h4>
-                  <p className="text-xs text-gray-500">
-                    {val.desc}
-                  </p>
+                  <p className="text-xs text-gray-500">{val.desc}</p>
                 </div>
               ))}
             </div>
           </div>
 
-            {/*equipo*/}
+          {/*equipo*/}
           <div className="bg-white p-8 rounded-2xl shadow-md border border-gray-100">
             <h3 className="text-xl font-semibold text-[#664270] mb-4">
               Equipo
             </h3>
             <div className="flex flex-wrap gap-20">
               {team.map((member, index) => (
-                <div key={index} className="flex flex-col items-center text-cente w-28">
-                  <Image src={member.img} 
-                        alt={member.name} 
-                        width={90} 
-                        height={90} 
-                        className="rounded-full object-cover shadow-md"
+                <div
+                  key={index}
+                  className="flex flex-col items-center text-cente w-28"
+                >
+                  <Image
+                    src={member.img}
+                    alt={member.name}
+                    width={90}
+                    height={90}
+                    className="rounded-full object-cover w-28 h-28 shadow-md"
                   />
                   <h4 className="mt-2 text-5sm font-semibold text-gray-900 text-center">
                     {member.name}
                   </h4>
-                  <p className="text-xs text-gray-500">
-                    {member.role}
-                  </p>
+                  <p className="text-xs text-gray-500">{member.role}</p>
                 </div>
               ))}
             </div>
           </div>
         </div>
-        
       </div>
     </div>
   );
