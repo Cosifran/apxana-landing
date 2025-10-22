@@ -4,6 +4,8 @@ import "./globals.css";
 //Import components
 import Nav from "./components/nav";
 import Footer from "./components/footer";
+//Import toaster
+import { Toaster } from "sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,6 +36,7 @@ export default function RootLayout({
         <div className="h-screen">
           <Nav />
           {children}
+          <Toaster />
           <Footer />
         </div>
       </body>
