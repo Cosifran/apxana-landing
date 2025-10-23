@@ -13,7 +13,7 @@ export default function Hero() {
   };
 
   return (
-    <div id="inicio" className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#d4cce8] to-[#ffffff] pt-24 md:pt-0">
+    <div id="inicio" className="relative h-[978px] lg:h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#d4cce8] to-[#ffffff] pt-24 md:pt-0">
       <DotGrid
         dotSize={4}
         gap={15}

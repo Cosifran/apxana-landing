@@ -53,7 +53,7 @@ export default function Contact() {
   return (
     <div
       id="contacto"
-      className="py-20 bg-gradient-to-b from-[#d9d6e8] to-[#c9c7da]"
+      className="py-20 bg-gradient-to-b from-[#f4f2fc] to-[#eae6f7]"
     >
       <div className="container mx-auto px-4 md:px-16 lg:px-12 max-w-7xl">
         <div className="text-center mb-12">
