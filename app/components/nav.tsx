@@ -13,6 +13,7 @@ export default function Nav() {
     { name: 'Inicio', href: '/#inicio' },
     { name: 'Servicios', href: '/#servicios' },
     { name: 'Nosotros', href: '/#nosotros' },
+    { name: 'Proyectos', href: '/#proyectos'},
     { name: 'Contacto', href: '/#contacto' },
   ];
 
