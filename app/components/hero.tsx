@@ -6,7 +6,7 @@ import DotGrid from "@/components/DotGrid";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 // Import variants
-import { fadeInUp, staggerContainer, staggerItem } from "./animations/motion-variants";
+import {  staggerContainer, staggerItem } from "./animations/motion-variants";
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
