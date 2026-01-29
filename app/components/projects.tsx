@@ -1,6 +1,8 @@
 'use client';
 
 import { ExternalLink } from "lucide-react";
+import { motion } from "motion/react";
+import { fadeInUp, staggerContainer, staggerItem, viewportConfig } from "./animations/motion-variants";
 
 export default function Projects() {
   const projects = [
@@ -29,25 +31,40 @@ export default function Projects() {
       id="proyectos"
       className="py-24 bg-gradient-to-b from-[#d9d6e8] to-[#c9c7da] flex flex-col items-center"
     >
-      {/* Encabezado */}
-      <div className="text-center mb-12 max-w-2xl">
+      {/* Encabezado animado */}
+      <motion.div 
+        className="text-center mb-12 max-w-2xl"
+        variants={fadeInUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportConfig}
+      >
         <h2 className="text-4xl md:text-5xl font-extrabold text-[#2e1746] mb-4">
           Proyectos
         </h2>
         <p className="text-gray-600 text-lg">
           Estos son algunos de los proyectos en los que hemos trabajado.
         </p>
-      </div>
+      </motion.div>
 
-      {/* Grid de proyectos */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl px-6">
+      {/* Grid de proyectos con stagger */}
+      <motion.div 
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl px-6"
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportConfig}
+      >
         {projects.map((project, index) => (
-          <a
+          <motion.a
             key={index}
             href={project.url}
             target="_blank"
             rel="noopener noreferrer"
             className="group flex flex-col justify-between bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-xl hover:border-[#6A4FFF]/40 transition-all duration-300"
+            variants={staggerItem}
+            whileHover={{ y: -5 }}
+            transition={{ duration: 0.2 }}
           >
             <div>
               <div className="flex items-center justify-between mb-3">
@@ -66,9 +83,9 @@ export default function Projects() {
                 Ver proyecto →
               </span>
             </div>
-          </a>
+          </motion.a>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 }

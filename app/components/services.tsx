@@ -1,8 +1,10 @@
+"use client";
+
 import { Cloud, Settings, Code2, MonitorSmartphone } from "lucide-react";
-import { title } from "process";
+import { motion } from "motion/react";
+import { fadeInUp, staggerContainer, staggerItem, viewportConfig } from "./animations/motion-variants";
 
 export default function Services() {
-
   const services = [
     {
       title: "Consultoría tecnológica y transformación digital",
@@ -29,8 +31,14 @@ export default function Services() {
   return (
     <div id="servicios" className="relative py-24 bg-gradient-to-b from-white to-[#f4f2fc]">
       <div className="container mx-auto px-4 md:px-16 lg:px-12 max-w-7xl">
-        {/* Encabezado */}
-        <div className="text-center mb-16 max-w-2xl mx-auto">
+        {/* Encabezado animado */}
+        <motion.div 
+          className="text-center mb-16 max-w-2xl mx-auto"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportConfig}
+        >
           <h2 className="text-4xl md:text-5xl font-extrabold text-[#2e1746] mb-4">
             Nuestros Servicios
           </h2>
@@ -38,12 +46,22 @@ export default function Services() {
             Soluciones diseñadas para transformar, optimizar y acelerar el
             crecimiento de tu empresa mediante la tecnología.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Servicios */}
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        {/* Servicios con stagger */}
+        <motion.div 
+          className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportConfig}
+        >
           {services.map((service, index) => (
-            <div key={index} className="group bg-white p-8 rounded-2xl shadow-md hover:shadow-2xl transition duration-300 hover:-translate-y-1 border border-gray-100 text-center">
+            <motion.div 
+              key={index} 
+              className="group bg-white p-8 rounded-2xl shadow-md hover:shadow-2xl transition duration-300 hover:-translate-y-1 border border-gray-100 text-center"
+              variants={staggerItem}
+            >
               <div className="mb-4 group-hover:scale-110 transition-transform duration-300">
                 {service.icon}
               </div>
@@ -53,9 +71,9 @@ export default function Services() {
               <p className="text-gray-600 text-sm leading-relaxed">
                 {service.description}
               </p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );

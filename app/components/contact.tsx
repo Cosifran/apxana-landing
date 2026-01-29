@@ -12,6 +12,10 @@ import {
   contactFormSchema,
   type ContactFormValues,
 } from "@/lib/validations/contact";
+// Import motion
+import { motion } from "motion/react";
+import { fadeInUp, fadeInLeft, fadeInRight, viewportConfig } from "./animations/motion-variants";
+
 export default function Contact() {
   const [isLoading, setIsLoading] = useState(false);
   const {
@@ -56,7 +60,14 @@ export default function Contact() {
       className="py-20 bg-gradient-to-b from-[#f4f2fc] to-[#eae6f7]"
     >
       <div className="container mx-auto px-4 md:px-16 lg:px-12 max-w-7xl">
-        <div className="text-center mb-12">
+        {/* Encabezado animado */}
+        <motion.div 
+          className="text-center mb-12"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportConfig}
+        >
           <h2 className="text-4xl md:text-5xl font-extrabold text-[#2e1746] mb-4">
             Contacto
           </h2>
@@ -64,11 +75,18 @@ export default function Contact() {
             Cuentanos sobre tu proyecto. Nuestro equipo responderá en menos de
             24 horas.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 gap-10 items-start">
+          {/* Formulario - entrada desde izquierda */}
           {!isLoading && (
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <motion.form 
+              onSubmit={handleSubmit(onSubmit)}
+              variants={fadeInLeft}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportConfig}
+            >
               <div className="bg-white rounded-2xl shadow-md p-8 border border-gray-100">
                 <div className="space-y-5">
                   <div>
@@ -126,14 +144,29 @@ export default function Contact() {
                   </button>
                 </div>
               </div>
-            </form>
+            </motion.form>
           )}
           {isLoading && (
-            <div className="flex justify-center items-center h-100">
+            <motion.div 
+              className="flex justify-center items-center h-100"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.3 }}
+            >
               <div className="animate-spin rounded-full h-15 w-15 border-t-2 border-b-2 border-primary"></div>
-            </div>
+            </motion.div>
           )}
-          <div className="relative flex flex-col justify-center bg-gradient-to-br from-[#f8f6ff] to-[#ece9f9] rounded-2xl p-10 shadow-md border border-gray-100 text-center transition-all duration-500 transform hover:-translate-y-2 hover:shadow-xl animate-float">
+          
+          {/* Card derecho - entrada desde derecha */}
+          <motion.div 
+            className="relative flex flex-col justify-center bg-gradient-to-br from-[#f8f6ff] to-[#ece9f9] rounded-2xl p-10 shadow-md border border-gray-100 text-center"
+            variants={fadeInRight}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportConfig}
+            whileHover={{ y: -8, boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.15)" }}
+            transition={{ duration: 0.3 }}
+          >
             <p className="text-lg text-[#2e1746] font-medium leading-relaxed mb-6">
               En <span className="font-bold text-[#6A4FFF]">APXANA TECH</span>{" "}
               creemos que la tecnología no solo transforma empresas, sino
@@ -144,7 +177,7 @@ export default function Contact() {
               <br />
               SU EMPRESA CON NOSOTROS?
             </h3>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

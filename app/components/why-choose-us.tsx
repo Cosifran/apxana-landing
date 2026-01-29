@@ -1,7 +1,21 @@
-import { Award, TrendingUp, Clock, Headphones, icons, Rocket, Workflow, Users } from "lucide-react";
+"use client";
+
+import { Award, TrendingUp, Clock, Headphones, Rocket, Workflow, Users } from "lucide-react";
 import Image from "next/image";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
+import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer, staggerItem, viewportConfig } from "./animations/motion-variants";
 
 export default function WhyChooseUs() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  
+  // Parallax for logos section
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+  
+  const logosY = useTransform(scrollYProgress, [0, 1], [20, -20]);
 
   const metric = [
     {
@@ -19,13 +33,28 @@ export default function WhyChooseUs() {
       num: "24/7",
       desc: "Soporte y monitoreo",
     },
-  ]
+  ];
+
+  const logos = [
+    { src: "/assets/logos/google-cloud.svg", alt: "Google Cloud" },
+    { src: "/assets/logos/angularjs.svg", alt: "Angular" },
+    { src: "/assets/logos/react.svg", alt: "React" },
+    { src: "/assets/logos/sap_logo_icon_170763.svg", alt: "SAP" },
+    { src: "/assets/logos/node-js.svg", alt: "NodeJS" },
+    { src: "/assets/logos/python.svg", alt: "Python" },
+  ];
 
   return (
-    <div className="relative py-24 bg-gradient-to-b from-white to-[#f4f2fc]">
+    <div ref={sectionRef} className="relative py-24 bg-gradient-to-b from-white to-[#f4f2fc]">
       <div className="container mx-auto px-4 md:px-16 lg:px-12 max-w-7xl">
-        {/*Enbezado */}
-        <div className="text-center mb-16">
+        {/* Encabezado animado */}
+        <motion.div 
+          className="text-center mb-16"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportConfig}
+        >
           <h2 className="text-4xl md:text-5xl font-extrabold text-[#2e1746] mb-4">
             ¿Por qué Elegirnos?
           </h2>
@@ -34,13 +63,31 @@ export default function WhyChooseUs() {
             Nuestro modelo combina consultoría estratégica, desarrollo ágil y acompañamiento continuo,
             garantizando resultados medibles y escalables.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          {/* Columna izquierda - métricas y diferenciadores */}
+          <motion.div 
+            className="space-y-6"
+            variants={fadeInLeft}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportConfig}
+          >
+            {/* Métricas con stagger */}
+            <motion.div 
+              className="grid grid-cols-1 sm:grid-cols-3 gap-4"
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportConfig}
+            >
               {metric.map((met, index) => (
-                <div key={index} className="rounded-2xl border border-gray-200 p-6 text-center bg-white shadow-sm hover:shadow-md transition">
+                <motion.div 
+                  key={index} 
+                  className="rounded-2xl border border-gray-200 p-6 text-center bg-white shadow-sm hover:shadow-md transition"
+                  variants={staggerItem}
+                >
                   <div className="flex justify-center mb-2">
                     {met.icon}
                   </div>
@@ -50,11 +97,18 @@ export default function WhyChooseUs() {
                   <p className="text-sm text-gray-600">
                     {met.desc}
                   </p>
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
 
-            <div className="bg-white rounded-2xl shadow-md border border-gray-100 p-6">
+            {/* Card diferenciadores */}
+            <motion.div 
+              className="bg-white rounded-2xl shadow-md border border-gray-100 p-6"
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportConfig}
+            >
               <h4 className="text-lg font-semibold text-[#664270] mb-2">
                 Lo que nos diferencia.
               </h4>
@@ -74,10 +128,17 @@ export default function WhyChooseUs() {
                   Resultados rapido y adpatables
                 </span>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
-          <div className="bg-white rounded-2xl border shadow-md p-8 flex flex-col justify-center">
+          {/* Columna derecha - tecnologías con parallax */}
+          <motion.div 
+            className="bg-white rounded-2xl border shadow-md p-8 flex flex-col justify-center"
+            variants={fadeInRight}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportConfig}
+          >
             <h3 className="text-xl font-semibold text-[#664270] mb-4">
               Algunas de Nuestras Tecnologías
             </h3>
@@ -87,34 +148,50 @@ export default function WhyChooseUs() {
               medibles y escalables.
             </p>
 
-            <div className="grid grid-cols-3 gap-6 items-center justify-items-center">
-              <Image src="/assets/logos/google-cloud.svg" alt="Google Cloud" width={60} height={60} />
-              <Image src="/assets/logos/angularjs.svg" alt="Angular" width={60} height={60} />
-              <Image src="/assets/logos/react.svg" alt="React" width={60} height={60} />
-              <Image src="/assets/logos/sap_logo_icon_170763.svg" alt="SAP" width={60} height={60} />
-              <Image src="/assets/logos/node-js.svg" alt="NodeJS" width={60} height={60} />
-              <Image src="/assets/logos/python.svg" alt="Python" width={60} height={60} />
-            </div>
+            {/* Logos con parallax sutil */}
+            <motion.div 
+              className="grid grid-cols-3 gap-6 items-center justify-items-center"
+              style={{ y: logosY }}
+            >
+              {logos.map((logo, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <Image src={logo.src} alt={logo.alt} width={60} height={60} />
+                </motion.div>
+              ))}
+            </motion.div>
 
-            <div className="mt-8 flex items-center justify-around text-center text-gray-700 text-sm">
-              <div className="flex flex-col items-center">
+            {/* Metodologías con stagger */}
+            <motion.div 
+              className="mt-8 flex items-center justify-around text-center text-gray-700 text-sm"
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportConfig}
+            >
+              <motion.div className="flex flex-col items-center" variants={staggerItem}>
                 <Workflow className="w-6 h-6 text-[#664270] mb-1" />
                 <span>Agile</span>
-              </div>
-              <div className="flex flex-col items-center">
+              </motion.div>
+              <motion.div className="flex flex-col items-center" variants={staggerItem}>
                 <Clock className="w-6 h-6 text-[#664270] mb-1" />
                 <span>Entrega continua</span>
-              </div>
-              <div className="flex flex-col items-center">
+              </motion.div>
+              <motion.div className="flex flex-col items-center" variants={staggerItem}>
                 <Users className="w-6 h-6 text-[#664270] mb-1" />
                 <span>Colaboración</span>
-              </div>
-              <div className="flex flex-col items-center">
+              </motion.div>
+              <motion.div className="flex flex-col items-center" variants={staggerItem}>
                 <Rocket className="w-6 h-6 text-[#664270] mb-1" />
                 <span>Innovación</span>
-              </div>
-            </div>
-          </div>
+              </motion.div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </div>
